@@ -5,6 +5,9 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     [SerializeField] private CardSO _card;
+
+    public CardSO CardData { get => _card; set => _card = value; }
+
     void Start()
     {
         

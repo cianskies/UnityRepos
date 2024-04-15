@@ -25,6 +25,7 @@ public class PlayerMovementController : MonoBehaviour
     private bool _canPlayerMove = true;
     private bool _isPlayerJumping;
     private bool _isPlayerUsingCard=false;
+    private bool _isPlayerChangingCard=false;
     public bool IsPlayerMoving()
     {
         return _movementDirection != Vector2.zero;
@@ -74,7 +75,11 @@ public class PlayerMovementController : MonoBehaviour
         {
             StartCoroutine(IEUseCard());
         }
-
+        if (Input.GetAxis("CardChange") != 0 && !_isPlayerChangingCard)
+        {
+           
+            StartCoroutine(IEChangeCardSlot(Input.GetAxis("CardChange")));
+        }
 
 
     }
@@ -100,6 +105,24 @@ public class PlayerMovementController : MonoBehaviour
         UseCardEvent?.Invoke();
         yield return new WaitForSeconds(0.16f);
         _isPlayerUsingCard = false;
+    }
+    private IEnumerator IEChangeCardSlot(float i)
+    {
+        _isPlayerChangingCard=true;
+
+        int newIndex = 0;
+        if(i>0)
+        {
+            newIndex = 1;
+        }
+        else
+        {
+            newIndex = -1;
+        }
+        //Debug.Log(newIndex);
+        UIManager.Instance.addIndex(newIndex);
+        yield return new WaitForSeconds(0.2f);
+        _isPlayerChangingCard = false;
     }
 
 
