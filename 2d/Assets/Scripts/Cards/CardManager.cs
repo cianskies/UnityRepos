@@ -5,21 +5,26 @@ using UnityEngine;
 
 public class CardManager : Singleton<CardManager>
 {
-    [SerializeField] private Card[] _cards;
+    [SerializeField] private List<CardSO> _cards;
 
     [SerializeField] private CardFamily[] _cardFamilyDB;
 
-    public Card[] Cards { get { return _cards; } }
+    public List<CardSO> Cards { get { return _cards; } }
 
     private void Start()
     {
-        _cards[0].CardData= SearchCard("Fire", 1);
-        _cards[1].CardData = SearchCard("Fire", 2);
-        _cards[2].CardData = SearchCard("Attack", 0);
 
-        for (int i = 0; i < _cards.Length; i++)
+        _cards.Add(SearchCard("Fire", 0));
+        _cards.Add(SearchCard("Fire", 1));
+        _cards.Add(SearchCard("Attack", 0));
+        _cards.Add(SearchCard("Attack", 0));
+
+        
+        
+
+        for (int i = 0; i < _cards.Count; i++)
         {
-            Debug.Log("Card number "+i+" "+_cards[i].CardData.Name + " " + _cards[i].CardData.Value);
+            //Debug.Log("Card number "+i+" "+_cards[i].CardData.Name + " " + _cards[i].CardData.Value);
         }
         
     }

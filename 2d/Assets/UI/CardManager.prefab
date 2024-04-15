@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8872642259723453756}
   - component: {fileID: 4595795322019335668}
-  - component: {fileID: 1810778597395697143}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -45,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1a87b32434eaf4d9c8a6e13e4a80c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cards:
-  - {fileID: 1810778597395697143}
-  - {fileID: 1810778597395697143}
-  - {fileID: 1810778597395697143}
+  _cards: []
   _cardFamilyDB:
   - _familyName: Fire
     _cards:
@@ -58,16 +54,3 @@ MonoBehaviour:
   - _familyName: Attack
     _cards:
     - {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
---- !u!114 &1810778597395697143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49613659537883499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4648b1d36170ce047bc7c78e9aa6f80a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _card: {fileID: 0}

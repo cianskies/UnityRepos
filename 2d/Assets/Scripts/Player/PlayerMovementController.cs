@@ -103,7 +103,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         _isPlayerUsingCard = true;
         UseCardEvent?.Invoke();
-        yield return new WaitForSeconds(0.16f);
+        yield return new WaitForSeconds(0.3f);
         _isPlayerUsingCard = false;
     }
     private IEnumerator IEChangeCardSlot(float i)

@@ -6,7 +6,7 @@ public class UIManager : Singleton<UIManager>
 {
     [SerializeField]private CardSlot _cardPrefab;
     [SerializeField]private Transform _cardPanel;
-    [SerializeField]private List<CardSlot> _aviableCards;
+    [SerializeField]private List<CardSlot> _aviableCards=new();
 
     private int _index = 0;
 
@@ -15,32 +15,39 @@ public class UIManager : Singleton<UIManager>
     void Start()
     {
         UpdateCardUI();
+        UpdateSelectedCard();
     }
     
 
     // Update is called once per frame
     void Update()
     {
-
         
     }
 
     private void UpdateCardUI()
     {
-        Card[] cards= CardManager.Instance.Cards;
-        for (int i = 0;i<cards.Length;++i)
+        List<CardSO> cards= CardManager.Instance.Cards;
+        for (int i = 0;i<cards.Count;++i)
         {
             UpdateCardInfo(cards[i], i);
+
         }
     }
-    private void UpdateCardInfo(Card card, int index)
+    private void UpdateCardInfo(CardSO card, int index)
     {
         if(card != null)
         {
-            CardSlot cardSlot = Instantiate(_cardPrefab, _cardPanel);
-            cardSlot.Index=index;
-            _aviableCards.Add(cardSlot);
-            Debug.Log(_aviableCards.Count);
+                CardSlot cardSlot = Instantiate(_cardPrefab, _cardPanel);
+                cardSlot.Index = index;
+                _aviableCards.Add(cardSlot);
+                //Debug.Log(_aviableCards.Count);
+            
+
+                _aviableCards[index].Icon.sprite = card.Icon;
+                _aviableCards[index].ValueText.text = card.Value.ToString();
+            
+
         }
     }
     private void UpdateSelectedCard()
@@ -48,7 +55,8 @@ public class UIManager : Singleton<UIManager>
         Debug.Log(_index);
         CardSlot selectedCard= _aviableCards[_aviableCards.Count-1].GetComponent<CardSlot>();
 
-        CardSO card = CardManager.Instance.Cards[_index].CardData;
+
+        CardSO card = CardManager.Instance.Cards[_index];
 
         Debug.Log(card.Name + " " + card.Value);
         selectedCard.Icon.sprite = card.Icon;
