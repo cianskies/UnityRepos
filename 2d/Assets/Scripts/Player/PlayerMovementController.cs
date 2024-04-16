@@ -7,6 +7,7 @@ public class PlayerMovementController : MonoBehaviour
 {
 
     public static event Action UseCardEvent;
+    public static event Action ReloadCardsEvent;
 
 
     [SerializeField] private float _movementSpeed;
@@ -26,6 +27,7 @@ public class PlayerMovementController : MonoBehaviour
     private bool _isPlayerJumping;
     private bool _isPlayerUsingCard=false;
     private bool _isPlayerChangingCard=false;
+    private bool _isPlayerReloadingCard=false;
     public bool IsPlayerMoving()
     {
         return _movementDirection != Vector2.zero;
@@ -80,6 +82,11 @@ public class PlayerMovementController : MonoBehaviour
            
             StartCoroutine(IEChangeCardSlot(Input.GetAxis("CardChange")));
         }
+        if (Input.GetAxis("Reload") > 0 && !_isPlayerReloadingCard)
+        {
+            Debug.Log("Ok");
+            StartCoroutine(IEReloadCards());
+        }
 
 
     }
@@ -103,7 +110,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         _isPlayerUsingCard = true;
         UseCardEvent?.Invoke();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         _isPlayerUsingCard = false;
     }
     private IEnumerator IEChangeCardSlot(float i)
@@ -120,9 +127,16 @@ public class PlayerMovementController : MonoBehaviour
             newIndex = -1;
         }
         //Debug.Log(newIndex);
-        UIManager.Instance.addIndex(newIndex);
+        CardManager.Instance.addIndex(newIndex);
         yield return new WaitForSeconds(0.2f);
         _isPlayerChangingCard = false;
+    }
+    private IEnumerator IEReloadCards()
+    {
+        _isPlayerReloadingCard = true;
+        ReloadCardsEvent?.Invoke();
+        yield return new WaitForSeconds(0.5f);
+        _isPlayerReloadingCard = false;
     }
 
 

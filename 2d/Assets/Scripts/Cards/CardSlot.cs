@@ -10,12 +10,14 @@ public class CardSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _valueText;
     [SerializeField] private Image _background;
     [SerializeField] private Image _icon;
+    [SerializeField] private CardSO _info;
 
     public int Index {  get { return _index; } set { _index = value; } }
 
     public TextMeshProUGUI ValueText { get => _valueText; set => _valueText = value; }
     public Image Background { get => _background; set => _background = value; }
     public Image Icon { get => _icon; set => _icon = value; }
+    public CardSO Info { get => _info; set => _info = value; }
 
     void Start()
     {

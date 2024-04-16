@@ -464,6 +464,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f0742c78a93741b4ca0cf7b5537acb04, type: 2}
     - target: {fileID: 8872642259723453756, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.0966144

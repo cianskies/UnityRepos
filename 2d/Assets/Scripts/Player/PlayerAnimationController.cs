@@ -49,7 +49,7 @@ public class PlayerAnimationController : MonoBehaviour
     private void UseCardPerformed()
     {
         _animator.SetTrigger(_meleeAttack);
-        Debug.Log("Hola");
+        //Debug.Log("Hola");
     }
     private void OnEnable()
     {

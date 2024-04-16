@@ -18,4 +18,11 @@ public class CardSO:ScriptableObject
     public int Value;
     public int CPCost;
     public Sprite Icon;
+
+    public bool Aviable;
+    private void OnEnable()
+    {
+        Aviable = true;
+    }
+
 }
