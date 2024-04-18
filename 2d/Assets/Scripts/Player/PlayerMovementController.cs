@@ -84,7 +84,7 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (Input.GetAxis("Reload") > 0 && !_isPlayerReloadingCard)
         {
-            Debug.Log("Ok");
+            //Debug.Log("Ok");
             StartCoroutine(IEReloadCards());
         }
 

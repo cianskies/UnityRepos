@@ -15,9 +15,10 @@ public class CardSO:ScriptableObject
     public string Name;
     public string Family;
     public string Description;
-    public int Value;
     public int CPCost;
     public Sprite Icon;
+
+    public Card Card;
 
     public bool Aviable;
     private void OnEnable()

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardType: 0
   Name: Attack
+  Family: 
   Description: Melee Attack
-  Value: 0
   CPCost: 0
   Icon: {fileID: 21300000, guid: 26e212917e3af9c4aa529014d86c45a6, type: 3}
+  Card: {fileID: 0}
+  Aviable: 1

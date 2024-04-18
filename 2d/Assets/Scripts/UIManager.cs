@@ -52,7 +52,7 @@ public class UIManager : Singleton<UIManager>
             }
                 cardSlot.Index = index;
                 cardSlot.Icon.sprite = card.Icon;
-                cardSlot.ValueText.text = card.Value.ToString();
+                cardSlot.ValueText.text = card.Card.Value.ToString();
                 cardSlot.gameObject.SetActive(card.Aviable);
 
 
