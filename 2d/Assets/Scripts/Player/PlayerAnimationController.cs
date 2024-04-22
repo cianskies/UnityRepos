@@ -12,6 +12,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private readonly int _movement = Animator.StringToHash("Walk");
     private readonly int _meleeAttack = Animator.StringToHash("MeleeAttack");
+    private readonly int _magicAttack = Animator.StringToHash("MagicAttack");
     private readonly int _jump = Animator.StringToHash("Jump");
 
 
@@ -46,18 +47,18 @@ public class PlayerAnimationController : MonoBehaviour
         _animator.SetBool(_jump, _playerMovementController.IsplayerJumping());
     }
 
-    private void UseCardPerformed()
+    public void UseCardPerformedAnim(CardSO cardData)
     {
-        _animator.SetTrigger(_meleeAttack);
-        //Debug.Log("Hola");
+        switch(cardData.CardType)
+        {
+            case(CardType.Attack):
+                _animator.SetTrigger(_meleeAttack);
+                break;
+            case (CardType.Magic):
+                _animator.SetTrigger(_magicAttack);
+                break;
+        }
     }
-    private void OnEnable()
-    {
-        PlayerMovementController.UseCardEvent += UseCardPerformed;
-    }
-    private void OnDisable()
-    {
-        PlayerMovementController.UseCardEvent -= UseCardPerformed;
-    }
+
 
 }

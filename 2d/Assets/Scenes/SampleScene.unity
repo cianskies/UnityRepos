@@ -233,6 +233,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardSO: {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
+  _value: 0
+--- !u!114 &745215271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745215265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd19524b266941d4bab31fed15edd0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
+  _value: 1
+--- !u!114 &745215274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745215265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5500a412e324e489fc9474c9eafdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+  _value: 2
+--- !u!114 &745215275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745215265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5500a412e324e489fc9474c9eafdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+  _value: 1
+--- !u!114 &745215276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745215265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5500a412e324e489fc9474c9eafdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+  _value: 0
 --- !u!1 &903516715
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +527,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c14802d2d06372b43a9902136f45fabd, type: 3}
+--- !u!1 &2005512693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175335630408707132, guid: c14802d2d06372b43a9902136f45fabd, type: 3}
+  m_PrefabInstance: {fileID: 1612315277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1437796992732405535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -483,8 +545,12 @@ PrefabInstance:
       value: CardManager
       objectReference: {fileID: 0}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _prefabPlayer
+      value: 
+      objectReference: {fileID: 2005512693}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[0]._baseCard
@@ -500,24 +566,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.size
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 745215268}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 745215271}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 745215271}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.data[3]
       value: 
@@ -545,15 +611,15 @@ PrefabInstance:
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.data[0]
       value: 
-      objectReference: {fileID: 745215268}
+      objectReference: {fileID: 745215276}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.data[1]
       value: 
-      objectReference: {fileID: 745215268}
+      objectReference: {fileID: 745215275}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.data[2]
       value: 
-      objectReference: {fileID: 745215268}
+      objectReference: {fileID: 745215274}
     - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _cardFamilyDB.Array.data[1]._cards.Array.data[3]
       value: 
@@ -625,6 +691,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 49613659537883499, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       insertIndex: -1
       addedObject: {fileID: 745215268}
+    - targetCorrespondingSourceObject: {fileID: 49613659537883499, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745215271}
+    - targetCorrespondingSourceObject: {fileID: 49613659537883499, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745215276}
+    - targetCorrespondingSourceObject: {fileID: 49613659537883499, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745215275}
+    - targetCorrespondingSourceObject: {fileID: 49613659537883499, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745215274}
   m_SourcePrefab: {fileID: 100100000, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
 --- !u!1001 &6339245260413967263
 PrefabInstance:

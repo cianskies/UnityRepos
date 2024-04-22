@@ -6,11 +6,14 @@ using UnityEngine;
 public abstract class Card : MonoBehaviour
 {
     [SerializeField]private CardSO _cardSO;
-    private int _value;
+    [SerializeField]private int _value;
+    private bool _aviable=true;
 
 
     public CardSO CardData { get => _cardSO; set => _cardSO = value; }
     public int Value { get => _value; set => _value = value; }
+
+    public bool Aviable { get=>_aviable; set => _aviable = value; }
 
     public void UseCard()
     {

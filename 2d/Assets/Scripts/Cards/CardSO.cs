@@ -20,10 +20,7 @@ public class CardSO:ScriptableObject
 
     public Card Card;
 
-    public bool Aviable;
-    private void OnEnable()
-    {
-        Aviable = true;
-    }
+
+
 
 }

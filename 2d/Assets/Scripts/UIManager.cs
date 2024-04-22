@@ -28,17 +28,18 @@ public class UIManager : Singleton<UIManager>
 
     private void UpdateCardUI()
     {
-        List<CardSO> cards= CardManager.Instance.Cards;
+        List<CardSO> cardData= CardManager.Instance.CardData;
+        List<Card> cards = CardManager.Instance.Cards;
         //Debug.Log(cards.Count);
-        for (int i = 0;i<cards.Count;++i)
+        for (int i = 0;i<cardData.Count;++i)
         {
-            UpdateCardInfo(cards[i], i);
+            UpdateCardInfo(cardData[i], cards[i], i);
 
         }
     }
-    private void UpdateCardInfo(CardSO card, int index)
+    private void UpdateCardInfo(CardSO cardData, Card card, int index)
     {
-        if(card != null)
+        if(cardData != null)
         {
             CardSlot cardSlot;
             if (_aviableCards.Count <= index)
@@ -51,8 +52,9 @@ public class UIManager : Singleton<UIManager>
                 cardSlot = _aviableCards[index];
             }
                 cardSlot.Index = index;
-                cardSlot.Icon.sprite = card.Icon;
-                cardSlot.ValueText.text = card.Card.Value.ToString();
+                cardSlot.Icon.sprite = cardData.Icon;
+            //Debug.Log(card.Value +"se updatea en la ui");
+                cardSlot.ValueText.text = card.Value.ToString();
                 cardSlot.gameObject.SetActive(card.Aviable);
 
 
