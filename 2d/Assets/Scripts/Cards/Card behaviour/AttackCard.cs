@@ -8,4 +8,12 @@ public class AttackCard : Card
     {
         Debug.Log("Se usa ataque melee");
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        Debug.Log("Colision");
+        Destroy(collision.gameObject);
+    }
+
+
 }
