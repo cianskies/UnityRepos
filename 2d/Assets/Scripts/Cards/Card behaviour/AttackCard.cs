@@ -6,7 +6,7 @@ public class AttackCard : Card
 {
     protected override void UseCardLogic()
     {
-        Debug.Log("Se usa ataque melee");
+        //Debug.Log("Se usa ataque melee");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

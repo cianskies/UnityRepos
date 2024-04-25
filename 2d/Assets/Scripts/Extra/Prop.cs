@@ -6,9 +6,11 @@ public class Prop : MonoBehaviour, IEGetDMG
 {
     [SerializeField] private float _HP;
     [SerializeField] private float _MaxHP;
+    private ShowDMGText _showDMGTextEvent;
 
     public void getDMG(float DMG)
     {
+        _showDMGTextEvent.nam;
         _HP -= DMG;
         if (_HP <= 0)
         {

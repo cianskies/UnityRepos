@@ -170,17 +170,17 @@ public class CardFamily
         for (int i = 0; i < _cards.Length && !cardFound; i++)
         {
             
-            Debug.Log("Comprando con carta de valor "+value);
+            //Debug.Log("Comprando con carta de valor "+value);
             if (_cards[i].Value == value)
             {
-                Debug.Log("Carta "+i+" encontrada");
+                //Debug.Log("Carta "+i+" encontrada");
                 newCard = _cards[i];
                 cardFound = true;
             }
         }
         if (newCard==null)
         {
-            Debug.Log("Nose ha encontrado la carta con valor "+value);
+            //Debug.Log("Nose ha encontrado la carta con valor "+value);
         }
         return newCard;
     }

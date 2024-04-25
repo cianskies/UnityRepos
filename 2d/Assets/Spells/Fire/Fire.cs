@@ -24,8 +24,14 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<IEGetDMG>()?.getDMG(1f);
-        Destroy(gameObject);
+        //collision.GetComponent<IEGetDMG>()?.getDMG(1f);
+        Debug.Log(collision.gameObject.name.ToString());
+        if (collision.GetComponent<IEGetDMG>() != null)
+        {
+            collision.gameObject.GetComponent<IEGetDMG>().getDMG(2f);
+            
+        }
+        
     }
     private void FlipSprite()
     {
