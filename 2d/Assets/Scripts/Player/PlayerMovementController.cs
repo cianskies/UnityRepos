@@ -36,11 +36,13 @@ public class PlayerMovementController : MonoBehaviour
     {
         return _isPlayerJumping;
     }
-    public Vector2 DireccionMovimiento { get => _movementDirection; set => _movementDirection = value; }
+    public Vector2 MovementDirection { get => _movementDirection; set => _movementDirection = value; }
+    public Vector2 LastDirection { get => _lastDirection; set => _lastDirection = value; }
 
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
+        _lastDirection = Vector2.right;
     }
 
     // Update is called once per frame
@@ -55,7 +57,11 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rb2d.MovePosition(_rb2d.position + _movementDirection * _movementSpeed * Time.fixedDeltaTime);
+        if (_canPlayerMove)
+        {
+            _rb2d.MovePosition(_rb2d.position + _movementDirection * _movementSpeed * Time.fixedDeltaTime);
+        }
+
     }
 
 
@@ -108,10 +114,12 @@ public class PlayerMovementController : MonoBehaviour
 
     private IEnumerator IEUseCard()
     {
+        _canPlayerMove  = false;
         _isPlayerUsingCard = true;
         UseCardEvent?.Invoke();
         yield return new WaitForSeconds(0.5f);
         _isPlayerUsingCard = false;
+        _canPlayerMove = true;
     }
     private IEnumerator IEChangeCardSlot(float i)
     {

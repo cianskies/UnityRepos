@@ -10,9 +10,8 @@ public class AttackCard : Card
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("Colision");
-        Destroy(collision.gameObject);
+        //en vez de hacer 1hp dmg get el ataque de player
+        collision.GetComponent<IEGetDMG>()?.getDMG(1f);
     }
 
 
