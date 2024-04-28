@@ -10,6 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8872642259723453756}
   - component: {fileID: 4595795322019335668}
+  - component: {fileID: 908124936704542223}
+  - component: {fileID: 9109339474948124926}
+  - component: {fileID: 7533356964736712094}
+  - component: {fileID: 5901123432873075901}
+  - component: {fileID: 2233336452085091751}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -44,13 +49,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1a87b32434eaf4d9c8a6e13e4a80c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cards: []
+  _prefabPlayer1: {fileID: 0}
+  _prefabPlayer2: {fileID: 0}
+  _cards1: []
+  _cards2: []
   _cardFamilyDB:
-  - _familyName: Fire
-    _cards:
-    - {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
-    - {fileID: 11400000, guid: d8b11315eff12914e9761f59a089c8f6, type: 2}
-    - {fileID: 11400000, guid: 4b9c172a3faf7e14cbdf49788b4ea175, type: 2}
   - _familyName: Attack
     _cards:
-    - {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
+    - {fileID: 908124936704542223}
+    - {fileID: 9109339474948124926}
+  - _familyName: Fire
+    _cards:
+    - {fileID: 7533356964736712094}
+    - {fileID: 5901123432873075901}
+    - {fileID: 2233336452085091751}
+--- !u!114 &908124936704542223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49613659537883499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd19524b266941d4bab31fed15edd0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
+  _value: 0
+--- !u!114 &9109339474948124926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49613659537883499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd19524b266941d4bab31fed15edd0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
+  _value: 1
+--- !u!114 &7533356964736712094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49613659537883499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5500a412e324e489fc9474c9eafdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+  _value: 0
+  _fireball: {fileID: 8475514988919698322, guid: 600fdb1342192bc41b2b33b075bb9afb, type: 3}
+  _playerPosition: {fileID: 0}
+--- !u!114 &5901123432873075901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49613659537883499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5500a412e324e489fc9474c9eafdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+  _value: 1
+  _fireball: {fileID: 8475514988919698322, guid: 600fdb1342192bc41b2b33b075bb9afb, type: 3}
+  _playerPosition: {fileID: 0}
+--- !u!114 &2233336452085091751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49613659537883499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5500a412e324e489fc9474c9eafdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardSO: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+  _value: 2
+  _fireball: {fileID: 8475514988919698322, guid: 600fdb1342192bc41b2b33b075bb9afb, type: 3}
+  _playerPosition: {fileID: 0}

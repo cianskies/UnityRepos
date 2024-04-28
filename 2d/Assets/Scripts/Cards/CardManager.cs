@@ -1,44 +1,67 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class CardManager : Singleton<CardManager>
 {
-    [SerializeField] private GameObject _prefabPlayer;
-    [SerializeField] private List<Card> _cards = new();
+    [SerializeField] private GameObject _prefabPlayer1;
+    [SerializeField] private GameObject _prefabPlayer2;
+    [SerializeField] private List<Card> _cards1 = new();
+    [SerializeField] private List<Card> _cards2 = new();
 
     [SerializeField] private CardFamily[] _cardFamilyDB;
 
     
     private int _index;
+    private int _index2;
 
-    private PlayerAnimationController _animator;
+    private PlayerAnimationController _animator1;
+    private PlayerAnimationController _animator2;
     
-    public List<CardSO> CardData { get { 
+    public List<CardSO> CardData(List<Card> cards) { 
         List<CardSO> cardSOs = new List<CardSO>();
-            for (int i = 0; i < _cards.Count; i++)
+            for (int i = 0; i < cards.Count; i++)
             {
-                cardSOs.Add(_cards[i].CardData);
+                cardSOs.Add(cards[i].CardData);
             }
         
         return cardSOs;
-        } 
+        
     }
-    public List<Card> Cards { get { return _cards; } }
+    public List<Card> Cards(int playerNum)
+    {
+        List<Card> cards;
+        if(playerNum== 1)
+        {
+            cards=_cards1;
+        }
+        else
+        {
+            cards = _cards2;
+        }
+        return cards;
+    }
 
     private void Start()
     {
         //Debug
-        _cards.Add(SearchCard("Fire", 0));
-        _cards.Add(SearchCard("Fire", 1));
-        _cards.Add(SearchCard("Attack", 1 ));
-        _cards.Add(SearchCard("Attack", 0));
-        _cards.Add(SearchCard("Fire", 2));
+        _cards1.Add(SearchCard("Fire", 0));
+        _cards1.Add(SearchCard("Fire", 1));
+        _cards1.Add(SearchCard("Attack", 1 ));
+        _cards1.Add(SearchCard("Attack", 0));
+        _cards1.Add(SearchCard("Fire", 2));
+        
+        _cards2.Add(SearchCard("Attack", 1 ));
+        _cards2.Add(SearchCard("Attack", 0));
+        _cards2.Add(SearchCard("Fire", 2));
 
 
         _index = 0;
-        _animator = _prefabPlayer.GetComponent<PlayerAnimationController>();
+        _index2 = 0;
+        _animator1 = _prefabPlayer1.GetComponent<PlayerAnimationController>();
+        _animator2 = _prefabPlayer2.GetComponent<PlayerAnimationController>();
         //for (int i = 0; i < _cards.Count; i++)
         //{
         //    Debug.Log("Card number " + i + " " + _cards[i].Name + " " + _cards[i].Value);
@@ -63,9 +86,9 @@ public class CardManager : Singleton<CardManager>
 
         return newCard;
     }
-    public void addIndex(int add)
+    public void addIndex(int add, List<Card> cards)
     {
-        int aviableCardNum = getAviableCardNum();
+        int aviableCardNum = getAviableCardNum(cards);
         if (aviableCardNum > 0)
         {
             Card oldCard;
@@ -73,24 +96,24 @@ public class CardManager : Singleton<CardManager>
             {
                 do
                 {
-                    oldCard = _cards[_index];
-                    _cards.RemoveAt(_index);
-                    _cards.Add(oldCard);
-                } while (!_cards[_index].Aviable);
+                    oldCard = cards[_index];
+                    cards.RemoveAt(_index);
+                    cards.Add(oldCard);
+                } while (!cards[_index].Aviable);
 
             }
             else
             {
                 do
                 {
-                    for (int i = 0; i < _cards.Count - 1; i++)
+                    for (int i = 0; i < cards.Count - 1; i++)
                     {
                         //Debug.Log(i);
-                        Card card = _cards[_index];
-                        _cards.RemoveAt(_index);
-                        _cards.Add(card);
+                        Card card = cards[_index];
+                        cards.RemoveAt(_index);
+                        cards.Add(card);
                     }
-                } while (!_cards[_index].Aviable);
+                } while (!cards[_index].Aviable);
 
             }
         }
@@ -98,12 +121,12 @@ public class CardManager : Singleton<CardManager>
 
     }
 
-    private int getAviableCardNum()
+    private int getAviableCardNum(List<Card> cards)
     {
         int aviableCardNum = 0;
-        for (int i = 0; i < _cards.Count; i++)
+        for (int i = 0; i < cards.Count; i++)
         {
-            if (_cards[i].Aviable)
+            if (cards[i].Aviable)
             {
                 ++aviableCardNum;
             }
@@ -112,34 +135,68 @@ public class CardManager : Singleton<CardManager>
         return aviableCardNum;
     }
 
-    private void UseCardPerformed()
+    private void UseCardPerformed(int playerNum)
     {
-        Card usedCard = _cards[_index];
-
-        if(usedCard.CardData != null)
+        List<Card> cards;
+        int index;
+        Card usedCard;
+        Debug.Log(playerNum + " ha usado una carta");
+        PlayerAnimationController animator;
+        if (playerNum == 1)
         {
-            usedCard.UseCard();
+            cards = _cards1;
+            index = _index;
+            animator = _animator1;
         }
         else
         {
-            Debug.Log("La carta no tiene ningun script de comportamiento asociada a esta");
+            cards= _cards2;
+            index = _index2;
+            animator = _animator2;
         }
 
+            usedCard = cards[index];
 
-        //Debug.Log("Se usa " + usedCard.Name + " de valor " + usedCard.Value);
-        _animator.UseCardPerformedAnim(usedCard.CardData);
-        usedCard.Aviable = false;
-        addIndex(1);
+
+            if (usedCard.CardData != null)
+            {
+                usedCard.UseCard();
+            }
+            else
+            {
+                Debug.Log("La carta no tiene ningun script de comportamiento asociada a esta");
+            }
+            //Debug.Log("Se usa " + usedCard.Name + " de valor " + usedCard.Value);
+            animator.UseCardPerformedAnim(usedCard.CardData);
+            usedCard.Aviable = false;
+            addIndex(1, cards);
+
+        
 
     }
-    private void ReloadCards()
+    private void ReloadCards(int playerNum)
     {
-        for (int i = 0; i < _cards.Count; i++)
+
+        List<Card> cards;
+        int index;
+
+        if(playerNum == 1)
         {
-            _cards[i].Aviable = true;
+            cards = _cards1;
+            index = _index;
+        }
+        else
+        {
+            cards= _cards2;
+            index = _index2;    
+        }
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].Aviable = true;
  
         }
-        _index = 0;
+        index = 0;
+
     }
     private void OnEnable()
     {
@@ -173,6 +230,7 @@ public class CardFamily
             //Debug.Log("Comprando con carta de valor "+value);
             if (_cards[i].Value == value)
             {
+               
                 //Debug.Log("Carta "+i+" encontrada");
                 newCard = _cards[i];
                 cardFound = true;

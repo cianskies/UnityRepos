@@ -10,7 +10,7 @@ public class Prop : MonoBehaviour, IEGetDMG
 
     public void getDMG(float DMG)
     {
-        _showDMGTextEvent.nam;
+        //_showDMGTextEvent.nam;
         _HP -= DMG;
         if (_HP <= 0)
         {
