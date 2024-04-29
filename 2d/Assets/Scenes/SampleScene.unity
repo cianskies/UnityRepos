@@ -517,6 +517,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1971401242525940208, guid: 523807c0cb8a75f42bb98152df5e6246, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971401242525940208, guid: 523807c0cb8a75f42bb98152df5e6246, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971401242525940208, guid: 523807c0cb8a75f42bb98152df5e6246, type: 3}
+      propertyPath: m_Color.r
+      value: 0.41919494
+      objectReference: {fileID: 0}
     - target: {fileID: 4475240386694803231, guid: 523807c0cb8a75f42bb98152df5e6246, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -555,6 +567,42 @@ PrefabInstance:
       propertyPath: _prefabPlayer2
       value: 
       objectReference: {fileID: 1175335630725598439}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[0].baseCard
+      value: 
+      objectReference: {fileID: 11400000, guid: ef32c6fb64c70604bae07fb3db5240ac, type: 2}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[1].baseCard
+      value: 
+      objectReference: {fileID: 11400000, guid: 76e355e47bed11742b28f67a41f512b1, type: 2}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[0]._familyName
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[1]._familyName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[2]._familyName
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595795322019335668, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+      propertyPath: _cardFamilyDB.Array.data[0]._cards.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5901123432873075901, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
       propertyPath: _playerPosition
       value: 
@@ -603,7 +651,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9109339474948124926, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+    - {fileID: 7533356964736712094, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+    - {fileID: 5901123432873075901, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+    - {fileID: 2233336452085091751, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
+    - {fileID: 908124936704542223, guid: f5fc1268795d3174bb02f8119b0f3303, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

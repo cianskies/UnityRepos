@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName =("CardDB/Attack"))]
-public abstract class Card : MonoBehaviour
+public class Card 
 {
     [SerializeField]private CardSO _cardSO;
     [SerializeField]private int _value;
     private bool _aviable=true;
+
+    public Card(CardSO cardSO, int value)
+    {
+        _cardSO=cardSO;
+        _value=value;   
+    }
 
 
     public CardSO CardData { get => _cardSO; set => _cardSO = value; }
@@ -17,7 +22,7 @@ public abstract class Card : MonoBehaviour
 
     public void UseCard()
     {
-        UseCardLogic();
+
     }
-    protected virtual void UseCardLogic() { }
+
 }

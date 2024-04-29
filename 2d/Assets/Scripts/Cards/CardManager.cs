@@ -46,16 +46,22 @@ public class CardManager : Singleton<CardManager>
 
     private void Start()
     {
+
+        for (int i = 0; i < _cardFamilyDB.Length; i++)
+        {
+            _cardFamilyDB[i].GenerateCardFamily();
+        }
         //Debug
-        _cards1.Add(SearchCard("Fire", 0));
-        _cards1.Add(SearchCard("Fire", 1));
-        _cards1.Add(SearchCard("Attack", 1 ));
         _cards1.Add(SearchCard("Attack", 0));
-        _cards1.Add(SearchCard("Fire", 2));
-        
-        _cards2.Add(SearchCard("Attack", 1 ));
+        _cards1.Add(SearchCard("Attack", 1));
+        _cards1.Add(SearchCard("Attack", 1));
+        _cards1.Add(SearchCard("Attack", 9));
+
         _cards2.Add(SearchCard("Attack", 0));
-        _cards2.Add(SearchCard("Fire", 2));
+        _cards2.Add(SearchCard("Attack", 1));
+        _cards2.Add(SearchCard("Attack", 1));
+
+
 
 
         _index = 0;
@@ -78,7 +84,7 @@ public class CardManager : Singleton<CardManager>
             //Debug.Log(_cardFamilyDB[i].FamilyName);
             if (_cardFamilyDB[i].FamilyName == familyName)
             {
-                newCard = _cardFamilyDB[i].SearchCardByValue(value);
+                newCard=new Card(_cardFamilyDB[i].SearchCardByValue(value).CardData, (_cardFamilyDB[i].SearchCardByValue(value).Value));
 
                 cardFound = true;
             }
@@ -215,7 +221,18 @@ public class CardManager : Singleton<CardManager>
 public class CardFamily
 {
     [SerializeField] private string _familyName;
+    [SerializeField] private CardSO baseCard;
+    [Header("Card List")]
     [SerializeField] private Card[] _cards;
+
+    public void GenerateCardFamily()
+    {
+        _cards = new Card[10];
+        for (int i = 0; i < _cards.Length; i++)
+        {
+            _cards[i]=new Card(baseCard, i);
+        }
+    }
 
     public string FamilyName { get => _familyName; set => _familyName = value; }
     public Card[] Cards { get => _cards; set => _cards = value; }
